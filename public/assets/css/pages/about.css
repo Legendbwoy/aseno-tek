@@ -1,0 +1,189 @@
+/* Timeline Styles */
+.timeline {
+    padding: 80px 0;
+    background: #f8f9fa;
+    position: relative;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #fdbe33;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: -10px;
+    background-color: #fdbe33;
+    border: 4px solid #ffffff;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-item.left {
+    left: 0;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+.timeline-item.right::after {
+    left: -10px;
+}
+
+.timeline-content {
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.timeline-content h3 {
+    color: #fdbe33;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.timeline-content h4 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.timeline-content p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .timeline-container::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item.right {
+        left: 0%;
+    }
+    
+    .timeline-item.left::after,
+    .timeline-item.right::after {
+        left: 18px;
+    }
+}
+
+/* Mission & Vision Styles */
+.mission-vision {
+    padding: 80px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../img/mission-bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+.mission-box,
+.vision-box {
+    text-align: center;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.mission-box:hover,
+.vision-box:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.mission-box i,
+.vision-box i {
+    font-size: 48px;
+    color: #fdbe33;
+    margin-bottom: 20px;
+}
+
+.mission-box h3,
+.vision-box h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.mission-box p,
+.vision-box p {
+    color: #ddd;
+    line-height: 1.8;
+}
+
+/* Why Choose Us Styles */
+.why-choose-us {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.value-box {
+    text-align: center;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    margin-bottom: 30px;
+}
+
+.value-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.value-box i {
+    font-size: 40px;
+    color: #fdbe33;
+    margin-bottom: 20px;
+}
+
+.value-box h4 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 20px;
+}
+
+.value-box p {
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
