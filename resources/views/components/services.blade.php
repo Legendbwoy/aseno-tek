@@ -186,7 +186,7 @@
     <!-- Service End -->
 
     <!-- Pricing Start -->
-    <div class="pricing">
+    <!-- <div class="pricing">
         <div class="container">
             <div class="section-header text-center">
                 <p>Pricing Plans</p>
@@ -291,6 +291,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Pricing End -->
 @endsection
