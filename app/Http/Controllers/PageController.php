@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\BlogPost;
+use App\Models\GalleryItem;
 
 class PageController extends Controller
 {
@@ -11,7 +12,19 @@ class PageController extends Controller
      */
     public function home()
     {
-        return view('pages.home');
+        $latestPosts = BlogPost::published()
+            ->latest('published_at')
+            ->limit(3)
+            ->get();
+
+        $featuredGalleryItems = GalleryItem::published()
+            ->orderByDesc('is_featured')
+            ->orderBy('sort_order')
+            ->latest()
+            ->limit(6)
+            ->get();
+
+        return view('pages.home', compact('latestPosts', 'featuredGalleryItems'));
     }
 
     /**
@@ -35,7 +48,7 @@ class PageController extends Controller
      */
     public function projects()
     {
-        return view('pages.projects');
+        return redirect()->route('gallery');
     }
 
     /**
@@ -43,7 +56,7 @@ class PageController extends Controller
      */
     public function projectDetail($id)
     {
-        return view('pages.project-detail', compact('id'));
+        return redirect()->route('gallery.item', ['slug' => $id]);
     }
 
     /**
@@ -67,7 +80,7 @@ class PageController extends Controller
      */
     public function blog()
     {
-        return view('pages.blog');
+        return redirect()->route('blog');
     }
 
     /**
@@ -75,7 +88,7 @@ class PageController extends Controller
      */
     public function blogSingle($id)
     {
-        return view('pages.blog-single', compact('id'));
+        return redirect()->route('blog.single', ['slug' => $id]);
     }
 
     /**

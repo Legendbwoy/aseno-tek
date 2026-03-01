@@ -87,4 +87,37 @@
     <!-- Blog Start -->
     @include('components.blog')
     <!-- Blog End -->
+
+    <!-- Gallery Preview Start -->
+    <div class="portfolio">
+        <div class="container">
+            <div class="section-header text-center">
+                <p>Featured Work</p>
+                <h2>Recent Gallery Projects</h2>
+            </div>
+            <div class="row">
+                @forelse(($featuredGalleryItems ?? collect()) as $galleryItem)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="portfolio-item">
+                            <div class="portfolio-img">
+                                <img src="{{ $galleryItem->image_path ? (str_starts_with($galleryItem->image_path, 'assets/') ? asset($galleryItem->image_path) : asset('storage/' . $galleryItem->image_path)) : asset('assets/img/portfolio-1.jpg') }}" alt="{{ $galleryItem->title }}">
+                            </div>
+                            <div class="portfolio-text">
+                                <h3>{{ $galleryItem->title }}</h3>
+                                <a class="btn" href="{{ route('gallery.item', $galleryItem->slug) }}">+</a>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <div class="col-12">
+                        <div class="alert alert-light border">No gallery items available yet.</div>
+                    </div>
+                @endforelse
+            </div>
+            <div class="text-center mt-3">
+                <a href="{{ route('gallery') }}" class="btn">View Full Gallery</a>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery Preview End -->
 @endsection

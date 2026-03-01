@@ -37,6 +37,13 @@
                     <a href="{{ route('team') }}">Our Team</a>
                     <a href="{{ route('projects') }}">Projects</a>
                     <a href="{{ route('testimonials') }}">Testimonial</a>
+                    @auth
+                        @if(auth()->user()->is_admin)
+                            <a href="{{ route('admin.dashboard') }}">Admin Dashboard</a>
+                        @endif
+                    @else
+                        <a href="{{ route('admin.login') }}">Admin Login</a>
+                    @endauth
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
